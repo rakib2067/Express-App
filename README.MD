@@ -2,9 +2,9 @@
 
 | [JavaScript API Frameworks](https://github.com/getfutureproof/fp_guides_wiki/wiki/JavaScript-API-Frameworks) | [Testing API Endpoints with Supertest](https://github.com/getfutureproof/fp_guides_wiki/wiki/API-Endpoint-Testing-with-Supertest) |
 
-### Demo repo
+### Express App
 
-To run the demo repo code:
+To run the Express App code:
 
 1. Install dependencies
    - `cd server`
