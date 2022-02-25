@@ -7,6 +7,6 @@ app.use(cors());
 
 // Routes
 const phoneRoutes = require("./controllers/phones");
-app.use("/", phoneRoutes);
+app.use("/phones", phoneRoutes);
 
 module.exports = app;

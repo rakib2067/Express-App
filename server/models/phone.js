@@ -1,11 +1,11 @@
 let phonesData = require("../data.js");
 
 class Phone {
-  constructor({ id, company, model, price }) {
-    this.id = id;
-    this.company = company;
-    this.model = model;
-    this.price = price;
+  //Create a phone class
+  constructor(data) {
+    this.id = data.id;
+    this.company = data.company;
+    this.model = data.model;
   }
 
   static get all() {
@@ -44,14 +44,15 @@ class Phone {
   }
 
   static create(phone) {
-    const newPhoneId = phoneData.length + 1;
+    const newPhoneId = phonesData.length + 1;
     const newPhone = new Phone({ id: newPhoneId, ...phone });
-    phoneData.push(newPhone);
+    phonesData.push(newPhone);
     return newPhone;
   }
 
-  destroy() {
-    const phone = phonesData.filter((phone) => phone.id === this.id)[0];
+  static destroy() {
+    const phone = phonesData.find((phone) => phone.id === this.id);
+    console.log(phone);
     phonesData.splice(catsData.indexOf(phone), 1);
   }
 }
