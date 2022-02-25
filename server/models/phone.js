@@ -50,10 +50,15 @@ class Phone {
     return newPhone;
   }
 
-  static destroy() {
+  destroy() {
+    let phone = phonesData.find((phone) => phone.id === this.id);
+    phonesData.splice(phonesData.indexOf(phone), 1);
+  }
+  update(changes) {
     const phone = phonesData.find((phone) => phone.id === this.id);
-    console.log(phone);
-    phonesData.splice(catsData.indexOf(phone), 1);
+    const phoneIndex = phonesData.indexOf((phone) => phone.id === this.id);
+    phonesData[phoneIndex] = { ...changes, ...phone };
+    return phonesData[phoneIndex];
   }
 }
 
