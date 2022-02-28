@@ -35,7 +35,7 @@ router.post("/", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  let phoneID = parseInt(req.params.id);
+  let phoneID = parseInt(req.params.id); //Coverts the ID within the parameter into a number
   let phoneToRemove = Phone.findById(phoneID); //Finds the phone by ID
   console.log(phoneToRemove);
   try {
