@@ -27,6 +27,7 @@ postForm.addEventListener("submit", (e) => {
     model: model,
   };
   data = JSON.stringify(data);
+
   fetch("http://localhost:3000/phones", {
     method: "POST",
     body: data,

@@ -39,6 +39,7 @@ router.delete("/:id", (req, res) => {
   let phoneToRemove = Phone.findById(phoneID); //Finds the phone by ID
   console.log(phoneToRemove);
   try {
+    // { id: 2, company: "Samsung", model: "Galaxy 22" },
     phoneToRemove.destroy(); //Uses the destroy method to remove the phone that was found by its ID
     res.status(204).send();
   } catch (e) {
@@ -50,10 +51,15 @@ module.exports = router; //Exports the router to other files
 
 // TBC Put Request
 
-// router.put("/update/:id", (req, res) => {
-//   const phoneId = parseInt(req.params.id);
-//   const selectedPhone = Phone.findById(phoneId);
-//   let changes = JSON.parse(req.body);
-//   let changedPhone = selectedPhone.update(changes);
-//   res.status(201).send(changedPhone);
-// });
+router.put("/update/:id", (req, res) => {
+  try {
+    const phoneId = parseInt(req.params.id);
+    const selectedPhone = Phone.findById(phoneId);
+    selectedPhone.update(req.body);
+    let updatedPhone = Phone.findById(phoneId);
+    res.status(201).send(updatedPhone);
+  } catch (e) {
+    console.log(e);
+  }
+  // let changes = JSON.parse(req.body);
+});

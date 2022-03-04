@@ -61,11 +61,9 @@ class Phone {
     phonesData.splice(phonesData.indexOf(phone), 1); //Removes the phone from the array
   }
   update(changes) {
-    //To be fixed
     const phone = phonesData.find((phone) => phone.id === this.id);
-    const phoneIndex = phonesData.indexOf((phone) => phone.id === this.id);
-    phonesData[phoneIndex] = { ...changes, ...phone };
-    return phonesData[phoneIndex];
+    const phoneIndex = phonesData.indexOf(phone);
+    phonesData[phoneIndex] = { ...phone, ...changes };
   }
 }
 
